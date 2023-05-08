@@ -20,6 +20,8 @@ console.log('Family Name: ' + responsePayload.family_name);
 console.log("Image URL: " + responsePayload.picture);
 console.log("Email: " + responsePayload.email);
 
+console.log("User state is : " + getCookie(g_state));
+
         }
 
         function decodeJwtResponse(token) {
@@ -46,9 +48,25 @@ console.log("Email: " + responsePayload.email);
 //       google.accounts.id.disableAutoSelect();
 //     }
 
+function getCookie(c_name) {
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(c_name + "=");
+        if (c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) {
+                c_end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(c_start, c_end));
+        }
+    }
+    return "";
+}
+
 function myFunction() {
     alert("myFunction");
 //   document.getElementById("demo");
+google.accounts.id.disableAutoSelect();
 }
         </script>
   </head>
