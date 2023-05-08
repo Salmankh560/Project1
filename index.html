@@ -6,6 +6,11 @@
       type="text/css"
     />
     <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        function OnSuccess(){
+            alert("login successfylly");
+        }
+        </script>
     <!-- <script>
 		var googleUser = {};
 		var startApp = function () {
@@ -50,6 +55,7 @@
         data-theme="outline"
         data-text="signin_with"
         data-size="large"
+        data-callback="OnSuccess"
         data-logo_alignment="left"
       ></div>
     </body>
