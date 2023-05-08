@@ -4,9 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="545410903179-2fs6kht0e1hq7fvg2bv41vjs4am37ek7.apps.googleusercontent.com">
+
     <title>The Tribute Website | A.P.J Abdul Kalam</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<script src="https://apis.google.com/js/platform.js" async defer>
+    <a href="#" onclick="signOut();">Sign out</a>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+    
+    function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+
+</script>
 <body>
     <div class="container">
         <div class="content">
@@ -42,5 +62,7 @@
             <footer><p>Read more about A.P.J Abdul Kalam on <a href="https://en.wikipedia.org/wiki/A._P._J._Abdul_Kalam" target="_blank">Wikipedia.</a></p></footer>
         </div>
     </div>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
 </body>
 </html>
