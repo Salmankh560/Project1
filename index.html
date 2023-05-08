@@ -8,13 +8,7 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
         function OnSuccess(response){
-            alert("login successfylly");
-
-            var profile = response.getBasicProfile();
-  console.log('ID >>: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: >>> ' + profile.getName());
-  console.log('Image URL:>>>> ' + profile.getImageUrl());
-  console.log('Email: >>>>>' + profile.getEmail());
+            alert(response);
 
 
             const responsePayload = decodeJwtResponse(response.credential);
